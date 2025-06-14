@@ -1,5 +1,4 @@
 package Strings;
-import java.util.*;
 
 class Solution {
     public int compress(char[] chars) {
