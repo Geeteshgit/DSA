@@ -2,20 +2,15 @@ package Arrays;
 
 class Solution {
     public int maxProduct(int[] nums) {
+        int len = nums.length;
+        int leftProduct = 1;
+        int rightProduct = 1;
         int max = nums[0];
-        int min = nums[0];
-        int ans = nums[0];
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] < 0) {
-                int temp = max;
-                max = min;
-                min = temp;
-            }
-            max = Math.max(max * nums[i], nums[i]);
-            min = Math.min(min * nums[i], nums[i]);
-
-            ans = Math.max(max, ans);
+        for(int i = 0; i < len; i++) {
+            leftProduct = (leftProduct == 0 ? 1 : leftProduct) * nums[i];
+            rightProduct = (rightProduct == 0 ? 1 : rightProduct) * nums[len-i-1];
+            max = Math.max(max, Math.max(leftProduct, rightProduct));
         }
-        return ans;
+        return max;
     }
 }
