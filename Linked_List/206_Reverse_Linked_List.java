@@ -24,10 +24,10 @@ class Solution {
         ListNode curr = head;
         ListNode prev = null;
         while (curr != null) {
-            ListNode front = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = front;
+            curr = next;
         }
         head = prev;
         return head;
